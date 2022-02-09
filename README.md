@@ -1,2 +1,5 @@
 # HAN_dtnps
 this repository contains the code for the paper: Derived transactional Net Promoter Score Prediction
+
+# Abstract
+The Transactional Net Promoter Score (tNPS) is a survey-based key indicator in understanding the quality of service of customer success experts. The low response rate (~10\%) and a significant response delay limits service quality understanding and makes support-agent's feedback process slow and inaccurate. Derived tNPS (DtNPS) is a state-of-the-art algorithm  based on hierarchical attention (HAN) architecture, which generates a tNPS proxy on 100\% of the contacts, allowing agents and customer support managers to get immediate feedback, respond more quickly and perform in depth analytics. In this paper we will describe how we developed and leveraged DtNPS and applied it for better overall customer service, We will elaborate on the unique opportunities and challenges in evaluating and adopting such a model as a key performance metric in the customer success domain.

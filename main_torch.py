@@ -48,23 +48,9 @@ def eval_x(model, loader, metric, is_valid):
     test_f1 = f1_score(test_ys, preds, average="weighted")
     test_prec_pc = precision_score(test_ys, preds, average=None)
     test_prec = precision_score(test_ys, preds, average="weighted")
-    print("test_acc: " + str(test_acc))
-    print("test_recall_pc: " + str(test_recall_pc))
-    print("test_recall: " + str(test_recall))
-    print("test_f1: " + str(test_f1))
-    print("test_prec_pc: " + str(test_prec_pc))
-    print("test_prec: " + str(test_prec))
     cm = confusion_matrix(test_ys, preds)
     real_tnps = 1.0 * (sum(cm[1]) - sum(cm[0])) / (sum(cm[0]) + sum(cm[1]) + sum(cm[2]))
     predicted_tnps = 1.0 * (sum(cm[:, 1]) - sum(cm[:, 0])) / (sum(cm[:, 0]) + sum(cm[:, 1]) + sum(cm[:, 2]))
-    print("real tnps:")
-    print(real_tnps)
-    print("predicted tnps:")
-    print(predicted_tnps)
-    print("delta:")
-    print(real_tnps - predicted_tnps)
-    print(cm[:, 0])
-    print(cm)
 
 
 def train_step(model, optimizer, train_loader, epoch, metric, scheduler=None, loss_function=F.cross_entropy, weights=[1,1,1]):
@@ -119,7 +105,6 @@ def eval_step(model, eval_loader, metric, is_valid=True):
                     t.set_description("valid")
                 else:
                     t.set_description("test")
-
                 X = text.cuda() if use_cuda else text
                 S = speaker.cuda() if use_cuda else speaker
                 T = time.cuda() if use_cuda else time
